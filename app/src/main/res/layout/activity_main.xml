@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/linearLayoutVar"
     tools:context="com.inventory.shop.shopinventory.MainActivity">
 
     <EditText
@@ -14,14 +15,10 @@
         android:ems="10"
         android:hint="@android:string/search_go"
         android:inputType="textPersonName"/>
-    <android.support.v7.widget.CardView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/cv">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="50sp"
-            android:id="@+id/tv"/>
-    </android.support.v7.widget.CardView>
+        android:layout_height="match_parent"
+        android:id="@+id/recyclerView">
+
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>
