@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
-    private static final String createQueryProductList = "CREATE TABLE productList(productName TEXT primary key, productSalePrice TEXT, productPurchasePrice TEXT, productAlternativeNames TEXT, category TEXT);";
+    private static final String createQueryProductList = "CREATE TABLE productList(productName TEXT, productSalePrice TEXT, productPurchasePrice TEXT, productAlternativeNames TEXT, category TEXT);";
     private static final String createCategoryQuery = "CREATE TABLE category(category TEXT primary key)";
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "inventory.db";
@@ -21,6 +21,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT into category(category) values('Screw Drivers')");
         db.execSQL("INSERT into category(category) values('Electrical Pipes and Fittings')");
         db.execSQL("INSERT into category(category) values('Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-60611111232313213121213','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
         db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
         db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
     }

@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
@@ -24,7 +25,7 @@ public class PriceList extends AppCompatActivity {
         db = dbHelper.getWritableDatabase();
         recyclerView = (RecyclerView) findViewById(R.id.priceListRv);
         recyclerView.setHasFixedSize(true);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
+        GridLayoutManager llm = new GridLayoutManager(this, 3);
         recyclerView.setLayoutManager(llm);
         initializeData();
         initializeAdapter();
