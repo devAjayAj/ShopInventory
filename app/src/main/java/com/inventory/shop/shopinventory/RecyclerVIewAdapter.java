@@ -1,14 +1,15 @@
 package com.inventory.shop.shopinventory;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -28,12 +29,12 @@ public class RecyclerVIewAdapter extends RecyclerView.Adapter<RecyclerVIewAdapte
     public static class CategoryClassViewHolder extends RecyclerView.ViewHolder {
         CardView cv;
         TextView tv;
-        public LinearLayout Hold;
+        Context c;
         public CategoryClassViewHolder(View itemView) {
             super(itemView);
             cv = (CardView) itemView.findViewById(R.id.cv);
             tv = (TextView) itemView.findViewById(R.id.tv);
-            Hold = (LinearLayout) itemView.findViewById(R.id.linearLayoutVar);
+            c = cv.getContext();
         }
     }
 
@@ -45,12 +46,12 @@ public class RecyclerVIewAdapter extends RecyclerView.Adapter<RecyclerVIewAdapte
     }
 
     @Override
-    public void onBindViewHolder(CategoryClassViewHolder holder, int position) {
+    public void onBindViewHolder(final CategoryClassViewHolder holder, final int position) {
         holder.tv.setText(categoryClassAdapterList.get(position).name);
-        holder.Hold.setOnClickListener(new View.OnClickListener() {
+        holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Toast.makeText(holder.c, "pos" + position + categoryClassAdapterList.get(position).name, Toast.LENGTH_SHORT).show();
             }
         });
     }

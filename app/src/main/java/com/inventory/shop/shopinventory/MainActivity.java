@@ -1,6 +1,7 @@
 package com.inventory.shop.shopinventory;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.v7.app.AppCompatActivity;
@@ -14,13 +15,14 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         DatabaseHelper dbHelper = new DatabaseHelper(getApplicationContext());
-        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db = dbHelper.getWritableDatabase();
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
@@ -33,22 +35,15 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
     public void initializeData() {
+        String categoryFromDB = "";
         categoryClassList = new ArrayList<>();
-        categoryClassList.add(new CategoryClass("1"));
-        categoryClassList.add(new CategoryClass("2"));
-        categoryClassList.add(new CategoryClass("3"));
-        categoryClassList.add(new CategoryClass("4"));
-        categoryClassList.add(new CategoryClass("5"));
-        categoryClassList.add(new CategoryClass("1"));
-        categoryClassList.add(new CategoryClass("2"));
-        categoryClassList.add(new CategoryClass("3"));
-        categoryClassList.add(new CategoryClass("4"));
-        categoryClassList.add(new CategoryClass("5"));
-        categoryClassList.add(new CategoryClass("1"));
-        categoryClassList.add(new CategoryClass("2"));
-        categoryClassList.add(new CategoryClass("3"));
-        categoryClassList.add(new CategoryClass("4"));
-        categoryClassList.add(new CategoryClass("5"));
+        Cursor cursr = db.rawQuery("SELECT * FROM category", null);
+        cursr.moveToFirst();
+        for(int i = 0; i < cursr.getCount(); i++){
+            categoryFromDB = cursr.getString(0);
+            categoryClassList.add(new CategoryClass(categoryFromDB));
+            cursr.moveToNext();
+        }
     }
 
     public void initializeAdapter() {
