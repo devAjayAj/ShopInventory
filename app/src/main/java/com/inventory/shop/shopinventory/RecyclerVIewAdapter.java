@@ -53,7 +53,8 @@ public class RecyclerVIewAdapter extends RecyclerView.Adapter<RecyclerVIewAdapte
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(holder.c,PriceList.class);
-                Toast.makeText(holder.c, "pos" + position + categoryClassAdapterList.get(position).name, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(holder.c, "pos" + position + categoryClassAdapterList.get(position).name, Toast.LENGTH_SHORT).show();
+                intent.putExtra("catgry", "" + categoryClassAdapterList.get(position).name);
                 holder.c.startActivity(intent);
             }
         });

@@ -1,5 +1,6 @@
 package com.inventory.shop.shopinventory;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import static com.inventory.shop.shopinventory.R.id.recyclerView;
 public class PriceList extends AppCompatActivity {
     RecyclerView recyclerView;
     SQLiteDatabase db;
+    String dbQueryCategory = "";
     public List<PriceListClass> priceListClassList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +36,10 @@ public class PriceList extends AppCompatActivity {
     public void initializeData(){
         priceListClassList = new ArrayList<>();
         String pname = "", psprice = "", ppprice = "", pcatgry = "";
-        Cursor crsr = db.rawQuery("SELECT * FROM productList", null);
+        Intent intent = getIntent();
+        String ctgry = intent.getStringExtra("catgry");
+        System.out.println(ctgry);
+        Cursor crsr = db.rawQuery("SELECT * FROM productList WHERE category='"+ ctgry + "'", null);
         crsr.moveToFirst();
         for(int i = 0; i < crsr.getCount(); i++){
             pname = crsr.getString(0);
