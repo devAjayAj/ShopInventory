@@ -45,4 +45,9 @@ public class PriceList extends AppCompatActivity {
         }
     }
 
+    public void initializeAdapter(){
+        PriceListRecyclerViewAdapter padapter = new PriceListRecyclerViewAdapter(priceListClassList);
+        recyclerView.setAdapter(padapter);
+    }
+
 }

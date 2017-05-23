@@ -21,6 +21,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL("INSERT into category(category) values('Screw Drivers')");
         db.execSQL("INSERT into category(category) values('Electrical Pipes and Fittings')");
         db.execSQL("INSERT into category(category) values('Capacitors')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-554','32','24','Screw Drivers')");
+        db.execSQL("INSERT into productList(productName, productSalePrice, productPurchasePrice, category) values('PYE-606','36','26','Capacitors')");
     }
 
     @Override

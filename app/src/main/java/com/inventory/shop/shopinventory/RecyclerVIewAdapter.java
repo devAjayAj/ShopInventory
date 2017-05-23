@@ -2,6 +2,7 @@ package com.inventory.shop.shopinventory;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -51,7 +52,9 @@ public class RecyclerVIewAdapter extends RecyclerView.Adapter<RecyclerVIewAdapte
         holder.cv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(holder.c,PriceList.class);
                 Toast.makeText(holder.c, "pos" + position + categoryClassAdapterList.get(position).name, Toast.LENGTH_SHORT).show();
+                holder.c.startActivity(intent);
             }
         });
     }
