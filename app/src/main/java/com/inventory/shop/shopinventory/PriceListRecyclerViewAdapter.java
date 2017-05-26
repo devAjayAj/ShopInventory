@@ -22,7 +22,7 @@ public class PriceListRecyclerViewAdapter extends RecyclerView.Adapter<PriceList
 
     public static class PriceListClassViewHolder extends RecyclerView.ViewHolder {
         CardView priceListCv;
-        TextView productNameTv, productSalepriceTV, productPurchasePriceTv,productCategoryTv;
+        TextView productNameTv, productSalepriceTV, productPurchasePriceTv;
 
         public PriceListClassViewHolder(View itemView) {
             super(itemView);
@@ -30,7 +30,7 @@ public class PriceListRecyclerViewAdapter extends RecyclerView.Adapter<PriceList
             productNameTv = (TextView)itemView.findViewById(R.id.productNameTv);
             productPurchasePriceTv = (TextView)itemView.findViewById((R.id.productPurchasePriceTv));
             productSalepriceTV = (TextView)itemView.findViewById(R.id.productSalePriceTv);
-            productCategoryTv = (TextView)itemView.findViewById(R.id.productCategoryTv);
+//            productCategoryTv = (TextView)itemView.findViewById(R.id.productCategoryTv);
         }
     }
     @Override
@@ -43,9 +43,9 @@ public class PriceListRecyclerViewAdapter extends RecyclerView.Adapter<PriceList
     @Override
     public void onBindViewHolder(PriceListRecyclerViewAdapter.PriceListClassViewHolder holder, int position) {
         holder.productNameTv.setText(priceListClassAdapterList.get(position).productName);
-        holder.productPurchasePriceTv.setText(priceListClassAdapterList.get(position).productPurchasePrice);
-        holder.productSalepriceTV.setText(priceListClassAdapterList.get(position).productSalePrice);
-        holder.productCategoryTv.setText(priceListClassAdapterList.get(position).productCategory);
+        holder.productPurchasePriceTv.setText("P:" + priceListClassAdapterList.get(position).productPurchasePrice);
+        holder.productSalepriceTV.setText("Rs:" + priceListClassAdapterList.get(position).productSalePrice);
+//        holder.productCategoryTv.setText(priceListClassAdapterList.get(position).productCategory);
     }
 
     @Override
