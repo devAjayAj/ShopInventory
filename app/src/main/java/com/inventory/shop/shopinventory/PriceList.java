@@ -39,7 +39,7 @@ public class PriceList extends AppCompatActivity {
         Intent intent = getIntent();
         String ctgry = intent.getStringExtra("catgry");
         System.out.println(ctgry);
-        Cursor crsr = db.rawQuery("SELECT * FROM productList WHERE category='"+ ctgry + "'", null);
+        Cursor crsr = db.rawQuery("SELECT * FROM productList WHERE category='"+ ctgry + "' order by productName ASC", null);
         crsr.moveToFirst();
         for(int i = 0; i < crsr.getCount(); i++){
             pname = crsr.getString(0);
