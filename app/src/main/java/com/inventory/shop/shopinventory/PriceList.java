@@ -12,7 +12,6 @@ import android.support.v7.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.inventory.shop.shopinventory.R.id.recyclerView;
 
 public class PriceList extends AppCompatActivity {
     RecyclerView recyclerView;
