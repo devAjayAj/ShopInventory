@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/productSalePriceTv"
-            android:textColor="#ff0000"
+            android:textColor="@color/colorAccent"
             android:gravity="center"/>
 
         <TextView
