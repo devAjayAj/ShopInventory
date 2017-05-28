@@ -9,12 +9,13 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.View;
+
 import android.widget.EditText;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SearchActivity extends AppCompatActivity {
 
@@ -22,8 +23,13 @@ public class SearchActivity extends AppCompatActivity {
     SQLiteDatabase db;
     String name;
     public List<PriceListClass> priceListClassList;
+    Boolean nameIsDuplicate;
+    Set<String> prodName = new LinkedHashSet<>();
+    Set<String> prodPurP = new LinkedHashSet<>();
+    Set<String> prodSaleP = new LinkedHashSet<>();
 
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
@@ -56,7 +62,7 @@ public class SearchActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                name = String.valueOf(input.getText());
+                name = String.valueOf(input.getText()).trim();
                 if (!name.isEmpty()) {
                     String query = "SELECT * FROM productList WHERE productName LIKE '%" + name + "%' order by productName ASC";
                     Cursor crsr = db.rawQuery(query, null);
@@ -79,10 +85,19 @@ public class SearchActivity extends AppCompatActivity {
                         crsr.moveToFirst();
                         for (int i = 0; i < crsr.getCount(); i++) {
                             pname[0] = crsr.getString(0);
-                            psprice[0] = crsr.getString(1);
-                            ppprice[0] = crsr.getString(2);
-                            pcatgry[0] = crsr.getString(4);
-                            priceListClassList.add(new PriceListClass(pname[0], psprice[0], ppprice[0], pcatgry[0]));
+                            nameIsDuplicate = false;
+                            for (int j = 0; j < priceListClassList.size(); j++) {
+                                if (pname[0].equals(priceListClassList.get(j).productName)) {
+                                    nameIsDuplicate = true;
+                                    break;
+                                }
+                            }
+                            if (!nameIsDuplicate) {
+                                psprice[0] = crsr.getString(1);
+                                ppprice[0] = crsr.getString(2);
+                                pcatgry[0] = crsr.getString(4);
+                                priceListClassList.add(new PriceListClass(pname[0], psprice[0], ppprice[0], pcatgry[0]));
+                            }
                             crsr.moveToNext();
                         }
                     }
